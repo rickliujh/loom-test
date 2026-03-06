@@ -1,0 +1,15 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: ClusterSecretStoreControl
+metadata:
+  name: clustersecretstorecontrol 
+spec:
+  match:
+    kinds:
+      - apiGroups: ["external-secrets.io"]
+        kinds: ["ExternalSecret"]
+  parameters:
+    ClusterSecretStore:
+      - name vault-example-2
+        allowednamespace:
+          - myloomtest
+
